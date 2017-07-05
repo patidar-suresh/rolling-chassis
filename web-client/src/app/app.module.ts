@@ -6,11 +6,20 @@ import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
 import { NgModule } from '@angular/core';
 
+// Third Party Modules
+import 'hammerjs';
+
+// Application Modules
+import { RoutingModule } from './app-routing.module';
+
+// Application components
 import { AppComponent } from './app.component';
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        LayoutComponent
     ],
     imports: [
         BrowserModule,
@@ -18,7 +27,8 @@ import { AppComponent } from './app.component';
         HttpModule,
         FlexLayoutModule,
         MaterialModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        RoutingModule
     ],
     providers: [],
     bootstrap: [AppComponent]
