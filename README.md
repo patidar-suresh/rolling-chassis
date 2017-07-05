@@ -8,9 +8,9 @@ I created this project as an attempt to provide a skeleton for enterprise grade 
 > **Common Features:**
 > - A basic project structure with tooling setup required for development.
 > - A design guideline to be followed and framework for implementing same in the project.
+> - A basic UI-Layout with options for common user actions like Navigation, Logout, Notifications, Profile Update etc.
 > - A charting library/framework to create impact-full visualizations.
 > - Internalization support (i18n/l10n)
-> - A basic UI-Layout with options for common user actions like Navigation, Logout, Notifications, Profile Update etc.
 > - A secure access to the application by user authentication and session management.
 > - User Management (CRUD Operations) - If users are maintained in current application.
 > - Role Management (CRUD Operations)
