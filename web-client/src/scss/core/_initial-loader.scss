@@ -1,16 +1,14 @@
-$init-loader-color:#e53935;
 .initial-loader {
     width: 60px;
     height: 60px;
-    background-color: $init-loader-color;
     margin: auto;
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
-    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
-    animation: sk-rotateplane 1.2s infinite ease-in-out;
+    -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out, sk-background 1.2s infinite ease-in-out alternate;
+    animation: sk-rotateplane 1.2s infinite ease-in-out, sk-background 1.2s infinite ease-in-out alternate;
 }
 @-webkit-keyframes sk-rotateplane {
     0% {
@@ -36,4 +34,15 @@ $init-loader-color:#e53935;
         transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
         -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
     }
+}
+@keyframes sk-background {
+  0% {
+    background-color: #27ae60;
+  }
+  50% {
+    background-color: #9a12d2;
+  }
+  100% {
+    background-color: #e53935;
+  }
 }

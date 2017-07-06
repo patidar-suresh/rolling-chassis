@@ -3,6 +3,9 @@ import { Router, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { MediaChange, ObservableMedia } from '@angular/flex-layout';
 
+import { BreadcrumbService } from '../core/breadcrumb/breadcrumb.service';
+import { PageTitleService } from '../shared/page-title/page-title.service';
+
 import * as Ps from 'perfect-scrollbar';
 import * as screenfull from 'screenfull';
 
@@ -30,13 +33,21 @@ export class LayoutComponent implements OnInit, OnDestroy {
     isFullscreen: boolean = false;
     @ViewChild('sidenav') sidenav;
 
-    constructor(private router: Router, private media: ObservableMedia) { 
+    constructor(private router: Router, private media: ObservableMedia,
+        private breadcrumbService: BreadcrumbService, private pageTitleService: PageTitleService) {
+        breadcrumbService.addFriendlyNameForRoute('/dashboard', 'Dashboard');
+        breadcrumbService.addFriendlyNameForRoute('/dashboard/common', 'Common');
+        breadcrumbService.addFriendlyNameForRoute('/dashboard/admin', 'Admin');
         this._routerSubscription = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             this.url = event.url;
         });
     }
 
     ngOnInit() {
+
+        this.pageTitleService.title.subscribe((val: string) => {
+            this.header = val;
+        });
 
         if (this.url !== '/user/signin' && this.url !== '/user/singup') {
             const elemSidebar = <HTMLElement>document.querySelector('.sidebar-container ');

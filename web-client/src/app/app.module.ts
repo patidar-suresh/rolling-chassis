@@ -14,10 +14,15 @@ import { PerfectScrollbarModule, PerfectScrollbarConfigInterface } from 'ngx-per
 // Application Modules
 import { MenuToggleModule } from './core/menu/menu-toggle.module';
 import { RoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
+
+// Application Services
+import { BreadcrumbService } from './core/breadcrumb/breadcrumb.service';
 
 // Application components
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
+import { BreadcrumbComponent } from './core/breadcrumb/breadcrumb.component';
 
 // Configuration for Perfect Scroll Bar
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
@@ -27,7 +32,8 @@ const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
 @NgModule({
     declarations: [
         AppComponent,
-        LayoutComponent
+        LayoutComponent,
+        BreadcrumbComponent
     ],
     imports: [
         BrowserModule,
@@ -37,10 +43,13 @@ const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
         MaterialModule,
         BrowserAnimationsModule,
         RoutingModule,
+        SharedModule.forRoot(),
         PerfectScrollbarModule.forRoot(perfectScrollbarConfig),
         MenuToggleModule
     ],
-    providers: [],
+    providers: [
+        BreadcrumbService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

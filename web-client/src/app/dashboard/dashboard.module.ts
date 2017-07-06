@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 
 // Application modules
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 // Application Components
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
@@ -19,7 +20,8 @@ import { CommonDashboardComponent } from './common-dashboard/common-dashboard.co
         DashboardRoutingModule,
         FormsModule,
         FlexLayoutModule,
-        MaterialModule
+        MaterialModule,
+        SharedModule
     ],
     declarations: [CommonDashboardComponent, AdminDashboardComponent],
     providers: []
