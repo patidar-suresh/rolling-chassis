@@ -1,0 +1,47 @@
+.portal-ham-icon {
+    margin-right: 1rem;
+}
+.portal-header-toolbar{
+    .mat-button, .mat-icon-button, .mat-raised-button,.mat-input-element{
+        color: $header-font-color;
+    }
+}
+
+body .portal-header-toolbar.mat-toolbar {
+    background: $header-bg-color;
+
+    .portal-header-toolbar .secondary-menu {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+    }
+    .secondary-menu button {
+        height: 50px;
+        margin: 0 0.7rem;
+        min-width: 50px;
+        width: 50px;
+        padding: 0;
+    }
+    .mat-menu-content {
+        .mat-menu-item {
+            font-size: 14px !important;
+            height: 38px !important;
+            line-height: 38px !important;
+        }
+    }    
+}
+
+.app-dark {
+    .portal-header-toolbar.mat-toolbar {
+        background: rgba(54, 54, 54, 1);
+          .mat-button, .mat-icon-button, .mat-raised-button,.mat-input-element{
+        color: white;
+    }
+    }
+}
+[dir="rtl"] {
+    .portal-ham-icon {
+        margin-left: 1rem;
+    }
+}

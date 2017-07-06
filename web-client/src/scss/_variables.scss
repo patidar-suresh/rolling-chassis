@@ -1,0 +1,87 @@
+//
+// General
+//
+
+
+//Sidebar
+
+$sidebar-width: 16rem !default;
+$sidebar-text-color: #e4e7ef;
+$sidebar-bg-color: #003087;//#37474F;
+$compact-sidebar-width: 70px !default;
+
+
+//  Header 
+$header-bg-color: #ccdcec;//#f0f2f7;
+$header-font-color:#000000;
+//Md card
+
+
+$md-card-padding-top-bottom :0.875rem;
+$md-card-padding-left-right : 1.5rem;
+$mat-card-bg-color:#ffffff;
+$mar-card-title-font-color:#3A405B;
+
+//mat-icon
+$mat-card-icon-color: #868e96;
+
+//Main Container 
+$container-bg:#f0f2f7;
+//Rounded Icons
+$highlight-icons: #ffffff;
+$highlight-icon-color:#3A405B;
+
+
+// Typography
+//
+
+
+$font-color: #3A405B;
+//Meta post
+$meta-post-color:#9c9fad;
+$meta-post-font-weight:bold;
+//Breadcrumb
+$breadcrumb-font-size:0.875rem;
+$breadcrumb-font-color:#3A405B;
+
+//Mat list hover bg
+$mat-list-hover-bg-color:rgba(0, 0, 0, 0.2);
+$html-font-size: 16px;
+$mat-font-family: 'Roboto', sans-serif;
+$font-size-base: 1rem !default;
+$font-weight-base: 400 !default;
+$font-weight-medium: 500 !default;
+$font-weight-bold: 600 !default;
+
+//Heading Font Size 
+
+$font-size-h1: 2rem !default;
+$font-size-h2: 1.625rem !default;//26px
+$font-size-h3: 1.375rem !default;//22px
+$font-size-h4: 1.125rem !default;//18px
+$font-size-h5: 0.875rem !default;//14px
+$font-size-h6: 0.75rem !default;//12px
+
+//Navigation link font
+$font-size-navlist: 0.875rem !default;//14px
+
+//Heading Font color
+
+$h1-font-color:inherit;
+$h2-font-color:inherit;
+$h3-font-color:inherit;
+$h4-font-color:inherit;
+$h5-font-color:inherit;
+$h6-font-color:inherit;
+
+$headings-margin-bottom: (1rem / 2) !default;
+$headings-font-family:   inherit !default;
+$headings-font-weight:   400 !default;
+$headings-line-height:   1.1 !default;
+$headings-color:         inherit !default;
+
+//
+// Radius
+//
+//Mat -card
+$border-radius-base:8px;

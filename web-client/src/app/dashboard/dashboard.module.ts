@@ -5,10 +5,10 @@ import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 
-// Custome modules
+// Application modules
 import { DashboardRoutingModule } from './dashboard-routing.module';
 
-// Custom Components
+// Application Components
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CommonDashboardComponent } from './common-dashboard/common-dashboard.component';
 

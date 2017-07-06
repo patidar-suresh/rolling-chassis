@@ -1,3 +1,18 @@
 /* Add global styles to this file, and also import other style files */
+// Material Theam Style
+@import "scss/material-theme";
 
+// Application variables
+@import "scss/variables";
+
+// Mixins
+@import "scss/mixins";
+
+// Core Styles
 @import "scss/core";
+
+// Customized Material Component Style
+@import "scss/material";
+
+// Utility Styles
+@import "scss/utilities";

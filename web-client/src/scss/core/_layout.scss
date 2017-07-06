@@ -1,0 +1,112 @@
+$product-logo-align:center;
+$product-logo-padding:1rem 0 0.5rem;
+
+body {
+    .app {
+        height: 100%;
+        overflow: hidden;
+    }
+    .product-logo {
+        padding: $product-logo-padding;
+        text-align: $product-logo-align;
+        .logo-text {
+            margin: 0;
+        }
+    }
+    .rc-container {
+        height: 100%;
+    }
+    .mat-icon-button,
+    .mat-mini-fab {
+        height: 3.125rem;
+        width: 3.125rem;
+    }
+    .mat-input-container {
+        font-size: 0.875rem;
+    }
+    //Breadcrumbs
+    .rc-breadcrumbs {
+        font-size: $breadcrumb-font-size;
+        color: $breadcrumb-font-color;
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+    .mat-raised-button.mat-primary,
+    .mat-fab.mat-primary,
+    .mat-mini-fab.mat-primary {
+        background-color: $highlight-icons;
+        color: $highlight-icon-color;
+    }
+    .mat-card {
+        margin: 1rem;
+        border-radius: $border-radius-base;
+        padding: $md-card-padding-top-bottom $md-card-padding-left-right;
+        overflow: hidden;
+    }
+    .mat-mini-fab .mat-icon,
+    .mat-mini-fab i {
+        padding: 0;
+        line-height: 3.3rem;
+    }
+    .mat-mini-fab i {
+        padding: 0.8125rem 0;
+    }
+    .mat-button {
+        font-size: 1rem;
+    }
+    .mat-icon {
+        height: auto;
+    }
+
+}
+
+.app-dark {
+        .mat-sidenav-content {
+            background: rgba(54, 54, 54, 1);
+        }
+        .rc-breadcrumbs {
+            color: mat-color($dark-foreground, base);
+        }
+        .sidebar-area.mat-sidenav{
+        background: mat-color($dark-background, card);
+    }
+}
+
+.boxed {
+    box-shadow: 0 0 9px rgba(0, 0, 0, 0.4);
+    margin: 0 auto;
+    width: 1170px;
+    .dash-card {
+        .pad-wrap {
+            padding-left: 0.2rem;
+            padding-right: 0.2rem;
+        }
+    }
+}
+
+.rc-base-container {
+    height: calc(100% - 64px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: relative;
+}
+.inner-container {
+    padding: 2rem 0.5rem 0.5rem 0.5rem;
+}
+
+@media(max-width:1199px) {
+    .boxed-layout-md {
+        display: none;
+    }
+}
+@media(max-width:991px) {
+    .rc-breadcrumbs {
+        display: none;
+    }
+    .portal-header-toolbar {
+        .search-bar,
+        .mat-icon-button {
+            display: none;
+        }
+    }
+}

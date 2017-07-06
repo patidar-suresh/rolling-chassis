@@ -1,1 +1,148 @@
-<router-outlet></router-outlet>
+<div class="app" #root [dir]="direction" [ngClass]="{'app-dark': dark, 'boxed': boxed, 'collapsed-sidebar': collapseSidebar, 'compact-sidebar': compactSidebar}">
+    <md-sidenav-container class="rc-container">
+        <!-- Left Navigation Bar -->
+        <md-sidenav #sidenav [mode]="sidenavMode" [opened]="sidenavOpen" class="sidebar-area">
+            <div class="sidebar-panel" fxLayout="column">
+                <md-toolbar class="sidebar-logo">
+                    <div class="product-logo">
+                        <div class="logo-sign inline-block"><img src="assets/img/logo-light.png" width="50" height="50"></div>
+                        <div class="logo-text inline-block"><img src="assets/img/logo-text-light.png" width="150" height="50"></div>
+                    </div>
+                </md-toolbar>
+                <div class="sidebar-container">
+                    <div class="sidenav-scrollbar-container" fxLayout="column">
+                        <perfect-scrollbar>
+                            <md-nav-list fxLayout="column" menuToggleDirective class="navigation">
+                            <!--Dashboard with sub link-->
+                            <md-list-item menuToggleLink>                                
+                                <a menuToggle class="rc-relative" md-ripple href="javascript:;">
+                                    <md-icon>dashboard</md-icon>
+                                    <span>Dashboard</span>
+                                    <span fxFlex></span>
+                                    <md-icon class="menu-caret">chevron_right</md-icon>
+                                </a>
+                                <md-nav-list class="sub-menu">
+                                    <md-list-item routerLinkActive="open">
+                                        <a [routerLink]="['/', 'dashboard', 'common' ]" routerLinkActive="active-link" class="rc-relative" md-ripple>Common</a>
+                                    </md-list-item>
+                                    <md-list-item routerLinkActive="open">
+                                        <a [routerLink]="['/', 'dashboard', 'admin' ]" routerLinkActive="active-link" class="rc-relative" md-ripple>Admin</a>
+                                    </md-list-item>
+                                </md-nav-list>
+                            </md-list-item>
+                            <!--Direct link menu-->
+                            <md-list-item menuToggleLink>
+                                <a menuToggle class="rc-relative" md-ripple [routerLink]="['/', 'users']" routerLinkActive="active-link">
+                                    <md-icon>people</md-icon>
+                                    <span>Users</span>
+                                </a>
+                            </md-list-item>
+                            <md-list-item menuToggleLink>
+                                <a menuToggle class="rc-relative" md-ripple [routerLink]="['/', 'roles']" routerLinkActive="active-link">
+                                    <md-icon>security</md-icon>
+                                    <span>Roles</span>
+                                </a>
+                            </md-list-item>
+                            </md-nav-list>
+                        </perfect-scrollbar>
+                    </div>
+                </div>
+            </div>
+        </md-sidenav>
+
+        <!--Top Header-->
+        <md-toolbar class="portal-header-toolbar">
+            <!--Menu button to toggle left nav bar-->
+            <div class="portal-ham-icon">
+                <button class="" md-mini-fab color="primary" md-card-icon (click)="sidenav.toggle()">
+                    <md-icon>menu</md-icon>
+                </button>
+            </div>
+
+            <!--Fill the gap-->
+            <span fxFlex></span>
+
+            <!--Right header controls-->
+            <!--Refer https://klarsys.github.io/angular-material-icons/ for more icons-->
+            <div class="secondary-menu">
+                <button fxHide="true" fxHide.gt-sm="false" md-button class="fullscreen-toggle" (click)="toggleFullscreen()">
+                    <md-icon *ngIf="!isFullscreen">fullscreen</md-icon>
+                    <md-icon *ngIf="isFullscreen">fullscreen_exit</md-icon>
+                </button>
+                <button class="user-button" md-button class="ml-xs overflow-visible" [mdMenuTriggerFor]="menu">
+                    <!--<div fxLayout="row" fxLayoutAlign="center center">-->
+                        <md-icon>account_circle</md-icon>
+                    <!--</div>-->
+                </button>
+                <button (click)="end.toggle()" md-button class="ml-xs overflow-visible">
+                    <md-icon>notifications</md-icon>
+                </button>
+            </div>
+        </md-toolbar>
+
+        <!--Right Notification Bar-->
+        <md-sidenav #end align="end" class="notification-panel" mode="over" opened="false">
+            <div class="scroll">
+                <md-toolbar class="mat-blue-800">
+                    <h3>Notifications</h3>
+                </md-toolbar>
+                <md-nav-list>
+                    <md-list-item>
+                        <md-icon md-list-avatar class="mat-text-warn">alarm_on</md-icon>
+                        <h4 md-line>Pending Deliveries</h4>
+                        <p md-line>Your 10 new order are pending for delivery</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon md-list-avatar class="mat-text-primary">lightbulb_outline</md-icon>
+                        <h4 md-line>Business Leads</h4>
+                        <p md-line>25 Users shown interest in your products and services</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon md-list-avatar class="mat-text-warn">error</md-icon>
+                        <h4 md-line>Payment gateway not available for last 1 hour</h4>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon md-list-avatar class="mat-text-primary">trending_up</md-icon>
+                        <h4 md-line>Sales</h4>
+                        <p md-line>Your total sale went up by 10% in last 1 month</p>
+                    </md-list-item>
+                    <md-list-item>
+                        <md-icon md-list-avatar class="mat-text-primary">explore</md-icon>
+                        <h4 md-line>Cities</h4>
+                        <p md-line>Explore 3 new cities for expanding your business</p>
+                    </md-list-item>
+                </md-nav-list>
+            </div>
+
+        </md-sidenav>
+
+        <!--Main view container-->
+        <div class="rc-base-container" #scrollContainer>
+            <div class="inner-container">
+                <router-outlet (activate)="onActivate($event, scrollContainer)"></router-outlet>
+            </div>
+        </div>
+    </md-sidenav-container>
+    Main Layout
+</div>
+
+<!--User Setting Menus-->
+<md-menu class="user-menu" x-position="before" y-position="below" #menu="mdMenu">
+    <button md-menu-item>
+    <md-icon>account_circle</md-icon>
+    <span>Profile</span>
+  </button>
+    <button md-menu-item>
+    <md-icon>settings</md-icon>
+    <span>Settings</span>
+  </button>
+    <button md-menu-item>
+    <md-icon>help</md-icon>
+    <span>Help</span>
+  </button>
+    <md-divider></md-divider>
+    <button [routerLink]="['/user/sign']" md-menu-item>
+    <md-icon>exit_to_app</md-icon>
+    <span>Logout</span>
+  </button>
+</md-menu>
