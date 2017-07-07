@@ -31,11 +31,9 @@ export class HttpService extends Http {
 
     get(url: string, options?: RequestOptionsArgs): Observable<any> {
         this.showLoader();
-        console.log('Received call for URL' + url);
         return super.get(this.getFullUrl(url), this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -49,7 +47,6 @@ export class HttpService extends Http {
         return super.request(url, this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -63,7 +60,6 @@ export class HttpService extends Http {
         return super.post(this.getFullUrl(url), body, this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -77,7 +73,6 @@ export class HttpService extends Http {
         return super.put(this.getFullUrl(url), body, this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -91,7 +86,6 @@ export class HttpService extends Http {
         return super.delete(this.getFullUrl(url), this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -105,7 +99,6 @@ export class HttpService extends Http {
         return super.patch(this.getFullUrl(url), body, this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -119,7 +112,6 @@ export class HttpService extends Http {
         return super.head(this.getFullUrl(url), this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
-                console.log('Reservid response in http service');
                 this.onSuccess(res);
             }, (error: any) => {
                 this.onError(error);
@@ -151,20 +143,17 @@ export class HttpService extends Http {
     }
 
     private onCatch(error: any, caught: Observable<any>): Observable<any> {
-        console.log('Some Error:' + error);
+        console.log('Error:' + error);
         return Observable.throw(error);
     }
 
     private onSuccess(res: Response): void {
-        console.log('Request successful');
     }
 
     private onError(res: Response): void {
-        console.log('Error, status code: ' + res.status);
     }
 
     private onEnd(): void {
-        console.log('Reqest ended');
         this.hideLoader();
     }
 
