@@ -29,9 +29,9 @@ export class HttpService extends Http {
         super(backend, defaultOptions);
     }
 
-    get(url: string, options?: RequestOptionsArgs): Observable<any> {
-        this.showLoader();
-        return super.get(this.getFullUrl(url), this.requestOptions(options))
+    get(url: string, options?: RequestOptionsArgs, apiSettings?: ApiSettings): Observable<any> {
+        this.showLoader(apiSettings);
+        return super.get(this.getFullUrl(url, apiSettings), this.requestOptions(options))
             .catch(this.onCatch)
             .do((res: Response) => {
                 this.onSuccess(res);
@@ -39,22 +39,22 @@ export class HttpService extends Http {
                 this.onError(error);
             })
             .finally(() => {
-                this.onEnd();
+                this.onEnd(apiSettings);
             });
     }
 
-    request(url: string | Request, options?: RequestOptionsArgs) {
-        return super.request(url, this.requestOptions(options))
-            .catch(this.onCatch)
-            .do((res: Response) => {
-                this.onSuccess(res);
-            }, (error: any) => {
-                this.onError(error);
-            })
-            .finally(() => {
-                this.onEnd();
-            });
-    }
+    // request(url: string | Request, options?: RequestOptionsArgs) {
+    //     return super.request(url, this.requestOptions(options))
+    //         .catch(this.onCatch)
+    //         .do((res: Response) => {
+    //             this.onSuccess(res);
+    //         }, (error: any) => {
+    //             this.onError(error);
+    //         })
+    //         .finally(() => {
+    //             this.onEnd();
+    //         });
+    // }
 
     post(url: string, body: string, options?: RequestOptionsArgs) {
         return super.post(this.getFullUrl(url), body, this.requestOptions(options))
@@ -138,8 +138,12 @@ export class HttpService extends Http {
         return options;
     }
 
-    private getFullUrl(url: string): string {
-        return this.apiUrl + url;
+    private getFullUrl(url: string, apiSettings?: ApiSettings): string {
+        if (apiSettings && apiSettings.is_full_url) {
+            return url;
+        } else {
+            return this.apiUrl + url;
+        }
     }
 
     private onCatch(error: any, caught: Observable<any>): Observable<any> {
@@ -153,15 +157,25 @@ export class HttpService extends Http {
     private onError(res: Response): void {
     }
 
-    private onEnd(): void {
-        this.hideLoader();
+    private onEnd(apiSettings?: ApiSettings): void {
+        this.hideLoader(apiSettings);
     }
 
-    private showLoader(): void {
-        this.loaderService.show();
+    private showLoader(apiSettings?: ApiSettings): void {        
+        if (!apiSettings || !apiSettings.disable_loader) {
+            this.loaderService.show();
+        }
     }
 
-    private hideLoader(): void {
-        this.loaderService.hide();
+    private hideLoader(apiSettings?: ApiSettings): void {
+        if (!apiSettings || !apiSettings.disable_loader) {
+            this.loaderService.hide();
+        }
     }
+}
+
+
+export class ApiSettings {
+    disable_loader: boolean = false;
+    is_full_url: boolean = false;
 }
