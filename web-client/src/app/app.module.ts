@@ -18,11 +18,14 @@ import { SharedModule } from './shared/shared.module';
 
 // Application Services
 import { BreadcrumbService } from './core/breadcrumb/breadcrumb.service';
+import { LoaderService } from './core/loader/loader.service';
+import { CustomRequestOptions } from './shared/http/custom-request.options';
 
 // Application components
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './layout/layout.component';
 import { BreadcrumbComponent } from './core/breadcrumb/breadcrumb.component';
+import { LoaderComponent } from './core/loader/loader.component';
 
 // Configuration for Perfect Scroll Bar
 const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
@@ -33,7 +36,8 @@ const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
     declarations: [
         AppComponent,
         LayoutComponent,
-        BreadcrumbComponent
+        BreadcrumbComponent,
+        LoaderComponent
     ],
     imports: [
         BrowserModule,
@@ -48,7 +52,9 @@ const perfectScrollbarConfig: PerfectScrollbarConfigInterface = {
         MenuToggleModule
     ],
     providers: [
-        BreadcrumbService
+        BreadcrumbService,
+        LoaderService,
+        CustomRequestOptions
     ],
     bootstrap: [AppComponent]
 })
