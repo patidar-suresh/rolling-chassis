@@ -1,0 +1,35 @@
+<div fxLayout="row" fxLayoutAlign="center center" class="mp-registration-form  height-full">
+    <div fxLayout="column" fxFlex.xl="40" fxFlex.lg="40" fxFlex.md="60" fxFlex.sm="70" fxFlex.xs="100">
+        <md-card>
+            <div>
+                <div fxLayout="column" fxLayoutAlign="center center">
+                    <div class="login-logo text-center">
+                        <img src="assets/img/logo-full-dark.png">
+                        <h5 class="">Please Enter your details for registrations</h5>
+                    </div>
+                </div>
+                <form #form="ngForm" (ngSubmit)="register()">
+                    <div fxLayout="column" fxLayoutAlign="start stretch">
+                        <md-input-container>
+                            <input mdInput placeholder="Name" type="text" name="name" required [(ngModel)]="name">
+                        </md-input-container>
+                        <md-input-container>
+                            <input mdInput placeholder="E-Mail" type="text" name="email" required [(ngModel)]="email">
+                        </md-input-container>
+                        <md-input-container>
+                            <input mdInput placeholder="Password" type="password" name="password" required [(ngModel)]="password">
+                        </md-input-container>
+                        <md-input-container>
+                            <input mdInput placeholder="Password (Confirm)" type="password" name="password-confirm" required [(ngModel)]="passwordConfirm">
+                        </md-input-container>
+                        <div fxLayout="row" fxLayoutAlign="start" class="mrgn-b-md">
+                            <md-checkbox>I accept the <a href="#" class="mat-text-primary">terms and conditions.</a></md-checkbox>
+                        </div>
+                        <button md-raised-button [disabled]="!form.valid" class="mat-blue-800 mrgn-b-md">CREATE ACCOUNT</button>
+                        <p>Already have an account? <a [routerLink]="['/session/signin']" class="mat-text-primary">Sign in here</a></p>
+                    </div>
+                </form>
+            </div>
+        </md-card>
+    </div>
+</div>

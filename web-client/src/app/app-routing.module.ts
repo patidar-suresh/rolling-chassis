@@ -6,6 +6,12 @@ import { LayoutComponent } from './layout/layout.component';
 
 const appRoutes: Routes = [
     {
+        path: 'session',
+        loadChildren: 'app/session/session.module#SessionModule'
+    }, {
+        path: 'pages',
+        loadChildren: 'app/pages/pages.module#PagesModule'
+    }, {
         path: '',
         component: LayoutComponent,
         children: [
@@ -18,6 +24,9 @@ const appRoutes: Routes = [
                 pathMatch: 'full'
             }
         ]
+    }, {
+        path: '**',
+        redirectTo: 'pages/notfound'
     }
 ];
 
