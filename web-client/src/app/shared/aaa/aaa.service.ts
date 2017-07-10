@@ -21,7 +21,7 @@ export class AaaService {
         const payload = {
             username: userName,
             password: password
-        }
+        };
         return Observable.of(true).delay(1000).do(val => this.isLoggedIn = true);
     }
 
@@ -30,14 +30,13 @@ export class AaaService {
     }
 
     isUserLoggedIn(): boolean {
-        return this.isLoggedIn
+        return this.isLoggedIn;
     }
 
     getLoggedInUser(): any {
         return {
             userId: 'abc',
             token: '123'
-        }
+        };
     }
-
 }

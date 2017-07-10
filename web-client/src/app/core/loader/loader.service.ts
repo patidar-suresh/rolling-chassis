@@ -7,11 +7,10 @@ import { LoaderState } from './loader';
 
 export class LoaderService {
 
+    private static loadingRequests: number = 0;
     private loaderSubject = new Subject<LoaderState>();
 
     loaderState = this.loaderSubject.asObservable();
-
-    private static loadingRequests: number = 0;
 
     constructor() { }
 

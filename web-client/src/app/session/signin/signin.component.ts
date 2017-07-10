@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { AaaService } from '../../shared/aaa/aaa.service'
-import {Router} from "@angular/router";
+import { AaaService } from '../../shared/aaa/aaa.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-signin',
@@ -18,7 +18,7 @@ export class SigninComponent implements OnInit {
     }
 
     login() {
-        if(!this.aaaService.login(this.user.username,this.user.password)){
+        if (!this.aaaService.login(this.user.username, this.user.password )) {
             this.errorMsg = 'Failed to login! try again ...';
         } else {
             this.router.navigate(['/']);

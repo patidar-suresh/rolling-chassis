@@ -7,8 +7,8 @@ export class CustomRequestOptions extends BaseRequestOptions {
     public token: string;
 
     constructor () {
-        super();        
+        super();
         this.headers.append('Content-Type', 'application/json');
         // this.headers.append('Authorization', 'Bearer ' + this.token );
-    }    
+    }
 }

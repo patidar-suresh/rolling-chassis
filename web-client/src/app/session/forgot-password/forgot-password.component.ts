@@ -14,7 +14,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   send() {
-    //logic for password recovery
+    // logic for password recovery
   }
 
 }

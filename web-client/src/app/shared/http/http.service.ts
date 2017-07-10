@@ -161,7 +161,7 @@ export class HttpService extends Http {
         this.hideLoader(apiSettings);
     }
 
-    private showLoader(apiSettings?: ApiSettings): void {        
+    private showLoader(apiSettings?: ApiSettings): void {
         if (!apiSettings || !apiSettings.disable_loader) {
             this.loaderService.show();
         }
