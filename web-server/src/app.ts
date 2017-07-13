@@ -10,7 +10,7 @@ class App {
 
   private mountRoutes (): void {
     const router = express.Router()
-    router.get('/', (req, res) => {
+    router.get('/api/v1/helloworld', (req, res) => {
       res.json({
         message: 'Hello World!'
       })
